@@ -30,7 +30,9 @@ with open('input.csv') as f,open('output.csv', 'w', newline='') as write_obj:
 					filename = filenameA + '_-_' + filenameB + '_' + str(index + 1) + ext
 					
 					image.urlretrieve(file, dirname + '/' + filename)
-					newFiles.append(os.popen("php php/sanitize.php %s"%(filename)).read())
+
+					sanitizeFilename = os.popen("php php/sanitize.php %s"%(filename)).read()
+					newFiles.append(sanitizeFilename)
 
 			row.append(",".join(newFiles))
 			csv_writer.writerow(row)

@@ -1,6 +1,6 @@
 <?php 
 unset($argv[0]);
-$filename = implode('_-_',$argv);
+$filename = implode('-',$argv);
 echo sanitize_file_name($filename);
 
 function sanitize_file_name( $filename ) {
